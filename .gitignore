@@ -1,0 +1,39 @@
+# IGNORE ENVIRONMENT FILES
+/log
+/storage
+/vendor
+.env
+
+# IGNORE WORDPRESS CORE FILES
+/html/wp-admin
+/html/wp-content/*
+/html/wp-includes
+/html/.htaccess
+/html/index.php
+/html/license.txt
+/html/readme.html
+/html/wp-activate.php
+/html/wp-blog-header.php
+/html/wp-comments-post.php
+/html/wp-config-docker.php
+/html/wp-config-sample.php
+/html/wp-config.php
+/html/wp-cron.php
+/html/wp-links-opml.php
+/html/wp-load.php
+/html/wp-login.php
+/html/wp-mail.php
+/html/wp-settings.php
+/html/wp-signup.php
+/html/wp-trackback.php
+/html/xmlrpc.php
+
+# IGNORE WORDPRESS PLUGINS & THEMES FILES BY DEFAULT
+/html/wp-content/plugins/*
+/html/wp-content/themes/*
+
+# THEMES AND PLUGINS TO NOT IGNORE
+!/html/wp-content/plugins/
+!/html/wp-content/themes/
+# !/html/wp-content/plugins/<plugin-name>
+# !/html/wp-content/themes/<theme-name>
