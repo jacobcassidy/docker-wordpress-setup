@@ -6,16 +6,17 @@ The repo contains the files needed to quickly get up and running with a WordPres
 
 The following are run in the command line within your project directory, unless otherwise noted:
 
-1. Run the following git clone command one directory up from where you want your project directory: `git clone git@github.com:jacobcassidy/wp-starter-docker.git`.
+1. Run the following git clone command in the parent directory where you want your project directory: `git clone git@github.com:jacobcassidy/wp-starter-docker.git`.
 2. Rename the cloned directory from "wp-starter-docker" to your project name.
-3. Update the `.env` file with the usernames, passwords, and local path your project will use.
-4. Run: `composer install` to install the composer Ray package and dependencies. This will create the `/vendor` directory and `composer.lock` file within your project directory. Note: if you don't have [Composer](https://getcomposer.org/download/) installed, you must install it first before this command will work.
-4. Open the [Docker Desktop](https://www.docker.com/products/docker-desktop/) app so the Docker engine is on.
-5. Build the docker container with: `docker compose up -d --build`. This will create your server and add the following directories to your project directory:
+3. Rename the `.env-example` file to `.env`.
+4. Update the `.env` file with the usernames, passwords, and local path your project will use.
+5. Run: `composer install` to install the composer Ray package and dependencies. This will create the `/vendor` directory and `composer.lock` file within your project directory. Note: if you don't have [Composer](https://getcomposer.org/download/) installed, you must install it first before this command will work.
+6. Open the [Docker Desktop](https://www.docker.com/products/docker-desktop/) app so the Docker engine is on.
+7. Build the docker container with: `docker compose up -d --build`. This will create your server and add the following directories to your project directory:
     - `/html`: contains the WordPress files.
     - `/log`: will contain the `wp-errors.log` file created when WordPress has an error.
     - `/storage/mysql`: contains the database.
-6. Open your browser to http://localhost:8000/ and complete the WordPress installation.
+8. Open your browser to http://localhost:8000/ and complete the WordPress installation.
 
 > Note: The main volumes path for the wordpress image in `compose.yaml` must be linked to `/var/www/html` for the wordpress image to work.
 
