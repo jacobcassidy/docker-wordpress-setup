@@ -17,18 +17,19 @@ For all features to work, you must do a one-time setup of the following:
     - Add a `compose.yaml` file and `/cert` directory (which will be used later) in the `localhost-network` directory.
     - Add the following to the `compose.yaml` file and save it:
     ```yaml
+    services:
       nginx-proxy:
         image: nginxproxy/nginx-proxy:latest
         ports:
           - "80:80"
           - "443:443"
         volumes:
-          - ./certs:/etc/nginx/certs
+          - ./storage/certs:/etc/nginx/certs
           - /var/run/docker.sock:/tmp/docker.sock:ro
 
-      networks:
-        default:
-          name: localhost-network
+    networks:
+      default:
+        name: localhost-network
       ```
       - Run `docker compose up -d --build` to create the container.
 
