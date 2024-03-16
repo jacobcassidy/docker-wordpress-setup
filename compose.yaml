@@ -42,4 +42,4 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - 3306:3306
+      - ${MYSQL_UNIQUE_PORT}:3306
