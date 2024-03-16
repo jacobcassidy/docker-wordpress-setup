@@ -24,7 +24,7 @@ For all features to work, you must do a one-time setup of the following:
           - "80:80"
           - "443:443"
         volumes:
-          - ./storage/certs:/etc/nginx/certs
+          - ./certs:/etc/nginx/certs
           - /var/run/docker.sock:/tmp/docker.sock:ro
 
     networks:
