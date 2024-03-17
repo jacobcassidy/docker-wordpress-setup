@@ -38,10 +38,10 @@ For all features to work, you must do a one-time setup of the following:
 The following are run in the command line within your local project directory unless otherwise noted:
 
 1. Run `git clone git@github.com:jacobcassidy/wp-starter-docker.git` in the parent directory where you want your project directory nested.
-2. Rename the cloned directory from "wp-starter-docker" to your project name.
+2. Rename the cloned directory from "wp-starter-docker" to your project name and cd into it.
 3. Rename the `.env-example` file to `.env`.
 4. Update the `.env` file with the usernames, passwords, unique port number (allows connecting with multiple DB containers), local file path, and local domain your project will use.
-5. If using the Ray app, run: `composer install` to install the composer Ray package and dependencies. This will create the `/vendor` directory and `composer.lock` file within your project directory.
+5. If you will be using the Ray app, install the composer Ray package and dependencies with `composer install`, which will create the `/vendor` directory and `composer.lock` file within your project directory. Otherwise, follow the [If NOT using the Ray app for debugging instructions](#if-not-using-the-ray-app-for-debugging).
 6. In the `/localhost-network/certs` directory you created in the __First Time Setup__ instructions above, create the SSL certs for the HTTPS protocol using the command: `mkcert yourlocaldomain.tld`. Make sure you replace "yourlocaldomain.tld" with the local domain name you specified in your `.env` file.
 7. Rename the created certs from `yourlocaldomain.tld-key.pem` to `yourlocaldomain.tld.key` and `yourlocaldomain.tld.pem` to `yourlocaldomain.tld.crt`
 8. Open the [Docker Desktop](https://www.docker.com/products/docker-desktop/) app so the Docker engine is on.
@@ -49,9 +49,11 @@ The following are run in the command line within your local project directory un
     - `/html`: contains the WordPress files.
     - `/log`: will contain the `wp-errors.log` file when WordPress has an error (the directory will be empty until there's an error).
     - `/storage/mysql`: contains the database.
-8. Open your browser to the local domain specified in your `.env` file and complete the WordPress installation.
-
-> Note: The main volumes path for the wordpress image in `compose.yaml` must be linked to `/var/www/html` for the wordpress image to work.
+10. Replace this WP Starter Docker README content with your project name and description (you can view the original WP Starter Docker README [here](https://github.com/jacobcassidy/wp-starter-docker)).
+11. Remove the original "wp-starter-docker" .gig directory with: `rm -rf .git`.
+12. Initialize a new git repository for your project with: `git init`.
+13. If you will use a GitHub remote repo, create and connect to it now.
+14. Open your browser to the local domain specified in your `.env` file and complete the WordPress installation.
 
 ## If using the Ray app for debugging
 
@@ -82,6 +84,10 @@ Unlike with `var_dump()`, `print_r()`, and other similar built-in functions, `ra
 Using the wordpress image directly will create a self-contained container. This means your local data would not be connected, and you would need to connect to the Docker container to do your development. It would also use the non-secure HTTP protocol, which can cause issues using third-party APIs and other tools.
 
 The `wp-starter-docker` setup adds local volumes so you can do all your development locally and have it reflected in the Docker container. This allows you to create or destroy the Docker container without deleting your site files or database since they are stored on your local machine.
+
+## Other Notes
+
+The main volumes path for the wordpress image in `compose.yaml` must be linked to `/var/www/html` for the wordpress image to work.
 
 ## Issues?
 
