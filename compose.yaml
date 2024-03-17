@@ -35,3 +35,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - ${MYSQL_UNIQUE_PORT}:3306
+
+networks:
+  default:
+    name: localhost-network
+    external: true
