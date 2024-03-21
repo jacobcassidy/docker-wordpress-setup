@@ -40,7 +40,7 @@ The following are run in the command line within your local project directory un
 1. Run `git clone git@github.com:jacobcassidy/wp-starter-docker.git` in the parent directory where you want your project directory nested.
 2. Rename the cloned directory from "wp-starter-docker" to your project name and cd into it.
 3. Rename the `.env-example` file to `.env`.
-4. Update the `.env` file with the usernames, passwords, unique port number (allows connecting with multiple DB containers), local file path, and local domain your project will use.
+4. Update the `.env` file with the database name, username, passwords, and port number (allows connecting with multiple DB containers), local file path, and local domain your project will use.
 5. If you will be using the Ray app, install the composer Ray package and dependencies with `composer install`, which will create the `/vendor` directory and `composer.lock` file within your project directory. Otherwise, follow the [If NOT using the Ray app for debugging instructions](#if-not-using-the-ray-app-for-debugging).
 6. In the `/localhost-network/certs` directory you created in the __First Time Setup__ instructions above, create the SSL certs for the HTTPS protocol using the command: `mkcert yourlocaldomain.tld`. Make sure you replace "yourlocaldomain.tld" with the local domain name you specified in your `.env` file.
 7. Rename the created certs from `yourlocaldomain.tld-key.pem` to `yourlocaldomain.tld.key` and `yourlocaldomain.tld.pem` to `yourlocaldomain.tld.crt`
@@ -57,7 +57,7 @@ The following are run in the command line within your local project directory un
 
 ## If using the Ray app for debugging
 
-To use the `ray()` function in a PHP file, you will need to include the Ray class file. The easiest way to do that is to include `require_once ABSPATH . '/../vendor/autoload.php';` in each PHP file you are calling the `ray()` function in.
+To use the `ray()` function in a PHP file, you will need to include the Ray class file. The easiest way to do that is to add `require_once ABSPATH . '/../vendor/autoload.php';` in each PHP file you are calling the `ray()` function in.
 
 ## If NOT using the Ray app for debugging
 

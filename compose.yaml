@@ -1,12 +1,24 @@
 services:
+  db:
+    image: mysql:latest
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:3306
   wordpress:
     image: wordpress:latest
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
-      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DEBUG: true
       WORDPRESS_CONFIG_EXTRA: |
         define( 'WP_DEBUG_LOG' , '/var/www/log/wp-errors.log' );
@@ -23,18 +35,6 @@ services:
       - ./ray.php:/var/www/ray.php
     depends_on:
       - db
-  db:
-    image: mysql:latest
-    volumes:
-      - ./storage/mysql:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - ${MYSQL_UNIQUE_PORT}:3306
 
 networks:
   default:
