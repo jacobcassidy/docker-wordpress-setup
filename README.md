@@ -29,9 +29,9 @@ The following are run in the command line within your local project directory un
 6. In the `/localhost-network/certs` directory you created in the __First Time Setup__ instructions above, create the SSL certs needed for the HTTPS protocol using the command: `mkcert yourlocaldomain.tld`. Make sure you replace "yourlocaldomain.tld" with the local domain name you specified in your `.env` file.
 7. Rename the created certs from `yourlocaldomain.tld-key.pem` to `yourlocaldomain.tld.key` and `yourlocaldomain.tld.pem` to `yourlocaldomain.tld.crt`
 8. Open the [Docker Desktop](https://www.docker.com/products/docker-desktop/) app so the Docker engine is on.
-9. Build the docker container with: `docker compose up -d`. This will create your server and add the following directories to your project directory:
+9. Build the docker container with: `docker compose up -d`, or if you want to use a different name from your project directory name, run: `docker compose -p yourprojectname up -d`. This will create your server and add the following directories to your project directory:
     - `/html`: contains the WordPress files.
-    - `/log`: will contain the `wp-errors.log` file when WordPress has an error (the directory will be empty until there's an error).
+    - `/logs`: will contain the `wp-errors.log` file when WordPress has an error (the directory will be empty until there's an error).
     - `/storage/mysql`: contains the database.
 10. Replace this __Docker WordPress Setup__ README content with your project name and description (you can view the original Docker WordPress Setup README [here](https://github.com/jacobcassidy/docker-wordpress-setup)).
 11. Remove the original "docker-wordpress-setup" .git directory with: `rm -rf .git`.
