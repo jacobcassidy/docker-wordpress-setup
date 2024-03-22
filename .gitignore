@@ -1,5 +1,5 @@
 # IGNORE ENVIRONMENT FILES
-/logs
+/log
 /storage
 /vendor
 .env

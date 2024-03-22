@@ -9,14 +9,14 @@ services:
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DEBUG: true
       WORDPRESS_CONFIG_EXTRA: |
-        define( 'WP_DEBUG_LOG' , '/var/www/logs/wp-errors.log' );
+        define( 'WP_DEBUG_LOG' , '/var/www/log/wp-errors.log' );
         define ( 'WP_DEBUG_DISPLAY', false );
         @ini_set( 'display_errors', 0 );
       FULL_LOCAL_PATH: ${FULL_LOCAL_PATH} # For use in ray.php
       VIRTUAL_HOST: ${VIRTUAL_HOST}
     volumes:
       - ./html:/var/www/html
-      - ./logs:/var/www/logs
+      - ./log:/var/www/log
       - ./vendor:/var/www/vendor
       - ./composer.json:/var/www/composer.json
       - ./composer.lock:/var/www/composer.lock

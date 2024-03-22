@@ -31,7 +31,7 @@ The following are run in the command line within your local project directory un
 8. Open the [Docker Desktop](https://www.docker.com/products/docker-desktop/) app so the Docker engine is on.
 9. Build the docker container with: `docker compose up -d`, or if you want to use a different name from your project directory name, run: `docker compose -p yourprojectname up -d`. This will create your server and add the following directories to your project directory:
     - `/html`: contains the WordPress files.
-    - `/logs`: will contain the `wp-errors.log` file when WordPress has an error (the directory will be empty until there's an error).
+    - `/log`: will contain the `wp-errors.log` file when WordPress has an error (the directory will be empty until there's an error).
     - `/storage/mysql`: contains the database.
 10. Replace this __Docker WordPress Setup__ README content with your project name and description (you can view the original Docker WordPress Setup README [here](https://github.com/jacobcassidy/docker-wordpress-setup)).
 11. Remove the original "docker-wordpress-setup" .git directory with: `rm -rf .git`.
