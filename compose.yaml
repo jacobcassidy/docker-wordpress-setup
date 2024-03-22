@@ -16,7 +16,7 @@ services:
       VIRTUAL_HOST: ${VIRTUAL_HOST}
     volumes:
       - ./html:/var/www/html
-      - ./log:/var/www/log
+      - ./logs:/var/www/logs
       - ./vendor:/var/www/vendor
       - ./composer.json:/var/www/composer.json
       - ./composer.lock:/var/www/composer.lock
