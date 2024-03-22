@@ -29,11 +29,11 @@
 /html/xmlrpc.php
 
 # IGNORE WORDPRESS PLUGINS & THEMES FILES BY DEFAULT
+!/html/wp-content/plugins/
+!/html/wp-content/themes/
 /html/wp-content/plugins/*
 /html/wp-content/themes/*
 
 # THEMES AND PLUGINS TO NOT IGNORE
-!/html/wp-content/plugins/
-!/html/wp-content/themes/
 # !/html/wp-content/plugins/<plugin-name>
 # !/html/wp-content/themes/<theme-name>
