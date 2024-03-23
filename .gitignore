@@ -1,7 +1,6 @@
 # IGNORE ENVIRONMENT FILES
 /log
 /storage
-/vendor
 .env
 
 # IGNORE WORDPRESS CORE FILES
