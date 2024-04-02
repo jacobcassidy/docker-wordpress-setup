@@ -43,6 +43,12 @@ For all features to work, you must do a one-time installation of the [Docker Ngi
 13. If you will be using a GitHub remote repo, create and connect to it now.
 14. Open your browser to the local domain specified in your `.env` file and complete the WordPress installation.
 
+## Note about the REST API
+
+- If your site is not connecting to the REST API (such as when you view https://yourdomain.local/wp-json/wp/v2/types/post), go to `WP Admin > Settings > Permalinks` and select one of the "pretty" link options. If you already have one selected, simply press the save button again, and your REST API endpoint should work again.
+
+If you see "The REST API encountered an error" or "Your site could not complete a loopback request", ensure you are NOT using ".localhost" as your TLD (since cURL version 7.85.0, domains ending in _.localhost_ can no longer resolve to an external IP), and confirm your `PROXY_NETWORK_GATEWAY` setting in the `.env` file is using the correct Docker network IP (see instructions in the .env file). If you change the settings in the `.env` file, rebuild your container with `docker compose up -d --build`.
+
 ## Issues?
 
 If you come across any issues, please feel free to report them [here](https://github.com/jacobcassidy/docker-wordpress-setup/issues).
